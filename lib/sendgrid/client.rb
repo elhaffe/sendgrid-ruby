@@ -23,13 +23,14 @@ module SendGrid
 
     def send(mail)
       res = conn.post do |req|
-        payload = mail.to_h
+        #payload = mail.to_h
+        payload = mail
         req.url(endpoint)
 
         # Check if using username + password or API key
         if api_user
           # Username + password
-          payload = payload.merge(api_user: api_user, api_key: api_key)
+          #payload = payload.merge(api_user: api_user, api_key: api_key)
         else
           # API key
           req.headers['Authorization'] = "Bearer #{api_key}"
