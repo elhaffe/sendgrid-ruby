@@ -36,7 +36,7 @@ module SendGrid
           req.headers['Authorization'] = "Bearer #{api_key}"
         end
 
-        req.body = payload
+        req.body = ""#payload
       end
 
       fail SendGrid::Exception, res.body if raise_exceptions? && res.status != 200
