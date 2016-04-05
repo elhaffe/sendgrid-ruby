@@ -54,7 +54,7 @@ module SendGrid
 
       mail.template = @template
       #@client.send(mail.to_h)
-      @client.send(Hash[mail.each_pair.to_a])
+      @client.send(mail)
     end
   end
 end
